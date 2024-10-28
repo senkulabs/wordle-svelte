@@ -6,6 +6,6 @@
 
 <p class="guess">
     {#each range(NUM_OF_LETTER) as cell}
-        <span class="cell">{guess ? guess[cell] : ''}</span>
+        <span class={guess ? `cell ${guess[cell].status}` : 'cell'}>{guess ? guess[cell].letter : ''}</span>
     {/each}
 </p>
