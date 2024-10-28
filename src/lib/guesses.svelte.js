@@ -1,0 +1,1 @@
+export let guesses = $state(['FIRST', 'GUESS']);

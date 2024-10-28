@@ -1,9 +1,11 @@
 <script>
+    let { handleGuessInput } = $props();
     let guess = $state('');
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(guess);
+        handleGuessInput(guess);
+        guess = '';
     }
 </script>
 
