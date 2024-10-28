@@ -1,1 +1,1 @@
-export let guesses = $state(['FIRST', 'GUESS']);
+export let guesses = $state([]);
