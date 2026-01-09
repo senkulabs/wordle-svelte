@@ -19,6 +19,9 @@
     let gameStatus = $state('running');
 
     function handleGuessInput(guess) {
+        if (guess === answer) {
+            gameStatus = 'win';
+        }
         const updatedGuess = checkGuess(guess, answer);
         const updatedGuesses = [...guesses, updatedGuess];
         if (updatedGuesses.length === NUM_OF_GUESSES_ALLOWED) {
@@ -26,10 +29,6 @@
                 gameStatus = 'win';
             } else {
                 gameStatus = 'lose';
-            }
-        } else {
-            if (guess === answer) {
-                gameStatus = 'win';
             }
         }
         guesses.push(updatedGuess);
@@ -41,7 +40,7 @@
 {#if gameStatus === 'win'}
     <div class="happy banner">
         <p>
-            <strong>Congratulations!</strong> Got it in <strong>{guesses.length} {guesses.length > 1 ? 'guess' : 'guesses'}</strong>
+            <strong>Congratulations!</strong> Got it in <strong>{guesses.length} {guesses.length > 1 ? 'guesses' : 'guess'}</strong>
         </p>
     </div>
 {/if}
